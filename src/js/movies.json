@@ -1,0 +1,112 @@
+{
+
+    "movies": [
+        {
+            "title": "How To Train Your Dragon",
+            "img": "assets/httyd.jpeg",
+            "description": "When Hiccup discovers Toothless isn't the only Night Fury, he must seek The Hidden World, a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.",
+            "director": "Dean DeBlois",
+            "writers": " Dean DeBlois, Cressida Cowell",
+            "stars": "Jay Baruchel, America Ferrera, F. Murray Abraham",
+            "rating": "7.7",
+            "times": "6pm - 8pm"
+
+        },
+
+        {
+            "title": "Shazam!",
+            "img": "assets/shazam.jpeg",
+            "description": "We all have a superhero inside us, it just takes a bit of magic to bring it out. In Billy Batson's case, by shouting out one word - SHAZAM. - this streetwise fourteen-year-old foster kid can turn into the grown-up superhero Shazam.",
+            "director": "David F. Sandberg",
+            "writers": "Henry Gayden",
+            "stars": "Zachary Levi, Mark Strong, Asher Angel",
+            "rating": "7.6",
+            "times": "8pm - 10pm"
+
+        },
+
+        {
+            "title": "Star Wars: The Force Awakens",
+            "img": "assets/starWars.jpeg",
+            "description": "Three decades after the Empire's defeat, a new threat arises in the militant First Order. Defected stormtrooper Finn and the scavenger Rey are caught up in the Resistance's search for the missing Luke Skywalker.",
+            "director": "J.J. Abrams",
+            "writers": "Lawrence Kasdan, J.J. Abrams",
+            "stars": "Daisy Ridley, John Boyega, Oscar Isaac",
+            "rating": "8.0",
+            "times": "10pm - 12pm"
+
+        },
+
+        {
+            "title": "Dumbo",
+            "img": "assets/dumbo.jpeg",
+            "description": "A young elephant, whose oversized ears enable him to fly, helps save a struggling circus, but when the circus plans a new venture, Dumbo and his friends discover dark secrets beneath its shiny veneer.",
+            "director": "Tim Burton",
+            "writers": "Ehren Kruger, Helen Aberson ",
+            "stars": "Colin Farrell, Michael Keaton, Danny DeVito",
+            "rating": "6.6",
+            "times": "6pm - 8pm"
+
+        },
+
+        {
+            "title": "Spider-Man: Far from Home",
+            "img": "assets/spiderMan.jpeg",
+            "description": "Peter Parker and his friends go on a European vacation, where Peter finds himself agreeing to help Nick Fury uncover the mystery of several elemental creature attacks, creating havoc across the continent.",
+            "director": "Jon Watts",
+            "writers": "Steve Ditko, Stan Lee",
+            "stars": "Zendaya, Tom Holland, Jon Favreau",
+            "rating": "8.6",
+            "times": "8pm - 10pm"
+
+        },
+
+        {
+            "title": "Venom",
+            "img": "assets/venom.jpg",
+            "description": "A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.",
+            "director": "Ruben Fleischer",
+            "writers": "Jeff Pinkner, Scott Rosenberg",
+            "stars": "Tom Hardy, Michelle Williams, Riz Ahmed",
+            "rating": "6.8",
+            "times": "10pm - 12pm"
+
+        },
+
+        {
+            "title": "The Lego Movie 2: The Second Part",
+            "img": "assets/legoMovie.jpeg",
+            "description": "It's been five years since everything was awesome and the citizens are facing a huge new threat: Lego Duplo invaders from outer space, wrecking everything faster than they can rebuild.",
+            "director": "Mike Mitchell",
+            "writers": "Phil Lord, Christopher Miller",
+            "stars": "Chris Pratt, Elizabeth Banks, Will Arnett",
+            "rating": "6.9",
+            "times": "6pm - 8pm"
+
+        },
+
+        {
+            "title": "A Dog's Way Home",
+            "img": "assets/dogsWay.jpeg",
+            "description": "A female dog travels four hundred miles in search of her owner throughout a Colorado wilderness.",
+            "director": "Charles Martin Smith",
+            "writers": "W. Bruce Cameron, Cathryn Michon",
+            "stars": "Ashley Judd, Jonah Hauer-King, Edward James Olmos",
+            "rating": "6.7",
+            "times": "8pm - 10pm"
+
+        },
+
+        {
+            "title": "Avengers: Endgame",
+            "img": "assets/avengers.jpeg",
+            "description": "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
+            "director": "Anthony Russo, Joe Russo",
+            "writers": "Christopher Markus, Stephen McFeely",
+            "stars": "Brie Larson, Scarlett Johansson, Karen Gillan",
+            "rating": "9.1",
+            "times": "10pm - 12pm"
+
+        }
+    ]
+}

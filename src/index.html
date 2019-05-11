@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <title>Bootstrap site</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- navigatin -->
+    <nav id="navScroll" class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">BrooklynFilm</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">Films</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" onclick="showDayOne();" href="#film">Day 1</a>
+                        <a class="dropdown-item" onclick="showDayTwo();" href="#film">Day 2</a>
+                        <a class="dropdown-item" onclick="showDayThree();" href="#film">Day 3</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#news">News</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- video background -->
+    <div class="row">
+        <div class="video-background">
+            <div class="video-wrap">
+                <video autoplay muted loop id="bg-video">
+                    <source src="assets/avengersEndgame.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+        <!-- Hero text and call to action -->
+        <div class="row" id="header-caption">
+            <div class="col-sm-12 col-md-6">
+                <div class="container">
+                    <h1 id="home" class="display-4 text-light text-md-left text-center">Brooklyn Outdoor Film Festival</h1>
+                    <p class="lead text-md-left text-center">August 5th - 8th</p>
+                    <p class="lead text-md-left text-center">
+                        <a class="btn btn-primary btn-lg" href="#film" role="button">Check out our lineup!</a>
+                    </p>
+                </div>
+            </div>
+            <!-- contact form -->
+            <div class="col-sm-12 col-md-6">
+                <div class="card" id=reserve-form>
+                    <h5 class="card-header info-color text-light text-center py-4">
+                        <strong>Reserve Your Seat Today!</strong>
+                    </h5>
+                    <div class="card-body bg-secondary px-lg-5 pt-0">
+                        <form class="my-form form-group form needs-validation" novalidate="">
+                            <!-- Form name -->
+                            <label class="label" for="contactFormName">Name</label>
+                            <input type="text" class="form-control" required="true">
+                            <div class="invalid-feedback">Enter Valid Name</div>
+                            <!-- Form E-mail -->
+                            <label class="label" for="contactFormEmail">Email</label>
+                            <input type="email" class="form-control" required="true">
+                            <div class="invalid-feedback">Enter Valid Email</div>
+                            <!-- Seat Number -->
+                            <div class="form-group">
+                                <label class="label" for="contactFormNumber">Number of Seats?</label>
+                                <input type="number" max="5" class="form-control" id="seatNum" required="true">
+                                <div class="invalid-feedback">Invalid Entery</div>
+                                <div class="small text-gray">*5 seats maximum</div>
+                            </div>
+                            <!-- Day Choice -->
+                            <select class="mdb-select md-form mt-2 mb-4 mr-4 initialized" required="true" onchange="run(); ShowSeats();" id="select">
+                                <option value="" disabled selected>Choose Which Day</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                            <div class="badge">
+                                <p class="label h6">Seats Available
+                                    <span class="badge badge-pill badge-primary" id="seats"></span>
+                                </p>
+                            </div>
+                            <!-- Submit Button -->
+                            <button onclick="Calc(this);" class="btn btn-info btn-rounded btn-block z-depth-0 my-2 waves-effect" type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of background video -->
+    <div data-spy="scroll" data-target="#navScroll" data-offset="0">
+        <!-- movies -->
+        <div id="film" class="container mt-5">
+            <button id="film" class="btn btn-primary " type="button" onclick="showDayOne();" data-toggle="collapse" data-target="#day1" aria-expanded="true" aria-controls="multiCollapseExample2">Day 1</button>
+            <button id="film" class="btn btn-primary" type="button" onclick="showDayTwo();" data-toggle="collapse" data-target="#day2" aria-expanded="true" aria-controls="multiCollapseExample2">Day 2</button>
+            <button id="film" class="btn btn-primary" type="button" onclick="showDayThree();" data-toggle="collapse" data-target="#day3" aria-expanded="true" aria-controls="multiCollapseExample2">Day 3</button>
+            <!-- modal -->
+            <div class="modal fade" id="movieModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Movie Details</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-lg-5 container" id="movie-img-container">
+                                    <img id="movie-img" height='400' class='card-img-top' alt='...'>
+                                </div>
+                                <div class="col-lg-7">
+                                    <h2 id="movie-title"></h2>
+                                    <div id="movie-description">
+                                        When Hiccup discovers Toothless isn't the only Night Fury, he must seek The Hidden World, a secret Dragon Utopia before a hired tyrant named Grimmel finds it first.
+                                    </div>
+                                    <h2 id="movie-rating"></h2>
+                                    <small>- IMDb rating</small>
+                                </div>
+                            </div>
+                            <div class="container movie-credits">
+                                <div id="movie-director"></div>
+                                <div id="movie-writers"></div>
+                                <div id="movie-stars"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="text-left" id="movie-times"></div>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-group">
+                <div class=" card mb-4">
+                    <div class="movie-show-wrapper-col1"></div>
+                </div>
+                <div class="card mb-4">
+                    <div class="movie-show-wrapper-col2"></div>
+                </div>
+                <div class="card mb-4">
+                    <div class="movie-show-wrapper-col3"></div>
+                </div>
+            </div>
+            <!-- festival about section -->
+            <div class="row mt-5    ">
+                <div class="col-sm-12 col-md-6 text-sm-center text-md-left">
+                    <h3 id="about" class="text-light">The Brooklyn Outdoor Film Festival 2018</h3>
+                    <p id="news" class="lead ">Brooklin Bridge Park</p>
+                    <p class="text-light" id="aboutUs">Brooklyn Film Festival (BFF), is an International, competitive festival. BFF’s mission is to provide a public forum in Brooklyn in order to advance public interest in films and the independent production of films. </p>
+                    <p class="text-light" id="aboutUs">To draw worldwide attention to Brooklyn as a center for cinema. To encourage the rights of all Brooklyn residents to access and experience the power of independent filmmaking, and to promote artistic excellence and the creative freedom of artists without censure. BFF, inc. is a not-for-profit organization.</p>
+                </div>
+                <!-- twitter news feed -->
+                <div class="col-sm-12 col-md-6">
+                    <div>
+                        <a class="twitter-timeline" data-height="500" data-theme="light" data-link-color="#E81C4F" href="https://twitter.com/brooklynfest?ref_src=twsrc%5Etfw">Latest Updates</a>
+                    </div>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer mt-5 pt-4 pb-4">
+            <div class="row">
+                <div class="col-sm-12 col-md-4 text-light text-center">
+                    <p id="contact" class="text-gray">contact</p>
+                    <p>E-Mail: brooklin.film@gmail.com</p>
+                    <p>Phone: 042 124 45678</p>
+                </div>
+                <div class="col-sm-12 col-md-4 text-center">
+                    <p class="text-gray">Our Partners</p>
+                    <a class="footerLink" href="https://www.brooklynbridgepark.org/" target="_new">brooklyn Bridge Park</a></br>
+                    <a class="footerLink" href="https://www.brooklynbridgepark.org/" target="_new">brooklyn News</a>
+                </div>
+                <div class="col-sm-12 col-md-4 text-center">
+                    <p class="text-gray">Our Social</p>
+                    <a class="fab fa-facebook-square" href="https://www.facebook.com/" target="_new"></a>
+                    <a class="fab fa-twitter-square" href="https://twitter.com/brooklynfest?ref_src=twsrc%5Etfw" target="_new"></a>
+                    <a class="fab fa-instagram" href="https://www.instagram.com/" target="_new"></a>
+                </div>
+            </div>
+        </div>
+        <div class="lower-footer">all rights reserved by Brooklyn Film Festival ™</div>
+    </div>
+    <script src="/js/jquery.min.js">
+    </script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script>
+    // Getting Movie objects from JSON file
+    var movies = "";
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var response = JSON.parse(xmlhttp.responseText);
+            movies = response.movies;
+        }
+    };
+    xmlhttp.open("GET", "/js/movies.json", true);
+    xmlhttp.send();
+
+
+    // Retriving images from movie object array
+    function ReturnImg(var_x) {
+
+        var imgPath = movies[var_x].img;
+
+        return imgPath.toString();
+    }
+
+    // Inserting movie details into the movie modal
+    function MovieDetails(var_x) {
+
+        var x = var_x;
+
+        document.getElementById("movie-title").innerHTML = movies[x].title;
+        document.getElementById("movie-img").src = ReturnImg(x);
+        document.getElementById("movie-description").innerHTML = movies[x].description;
+        document.getElementById("movie-rating").innerHTML = movies[x].rating;
+        document.getElementById("movie-director").innerHTML = ("Director:  " + movies[x].director);
+        document.getElementById("movie-writers").innerHTML = ("Writer(s):  " + movies[x].writers);
+        document.getElementById("movie-stars").innerHTML = ("Stars:  " + movies[x].stars);
+        document.getElementById("movie-times").innerHTML = ("Showing time:  " + movies[x].times);
+        console.log(x);
+
+    }
+
+
+    // seat counter
+    var availableSeats1 = 5000;
+    var availableSeats2 = 5000;
+    var availableSeats3 = 5000;
+    var dayNum = "";
+
+
+    function Calc(e) {
+
+        e.preventDefault
+        var seatNum = document.getElementById('seatNum').value;
+        var dayNum = document.getElementById('select').value;
+
+        if (availableSeats1 <= 0) {
+            alert("Sorry, No seats available for this day");
+            return false;
+
+        } else if (dayNum == 1 && seatNum <= 5) {
+
+            availableSeats1 -= seatNum;
+            ShowSeats();
+        } else if (availableSeats2 <= 0) {
+            alert("Sorry, No seats available for this day");
+            return false;
+
+        } else if (dayNum == 2 && seatNum <= 5) {
+
+            availableSeats2 -= seatNum;
+            ShowSeats();
+        } else if (availableSeats3 <= 0) {
+            alert("Sorry, No seats available for this day");
+            return false;
+
+        } else if (dayNum == 3 && seatNum <= 5) {
+
+            availableSeats3 -= seatNum;
+            ShowSeats();
+        }
+    }
+
+    // Tracks which day is selected
+    function run() {
+
+        var selectVal = document.getElementById("select");
+        dayNum = selectVal.options[selectVal.selectedIndex].value;
+
+    }
+
+    // Displays remaining seats left for the day selected
+    function ShowSeats() {
+        if (dayNum == 1) {
+            document.getElementById('seats').innerHTML = availableSeats1;
+        } else if (dayNum == 2) {
+            document.getElementById('seats').innerHTML = availableSeats2;
+        } else if (dayNum == 3) {
+            document.getElementById('seats').innerHTML = availableSeats3;
+        } else {
+            document.getElementById('seats').innerHTML = "";
+        }
+    }
+
+
+
+
+    //form validation
+    $(document).ready(function() {
+
+
+
+        showDayOne();
+        ShowSeats();
+
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+
+                    form.classList.add('was-validated');
+
+                }, false);
+            });
+        }, false);
+
+
+    });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+//Variables Overrides
+
+$body-bg: #302C2C;
+
+$theme-colors: (
+	"primary": #B31B34,
+	"secondary": #302C2C,
+	"accent":#7C2230
+
+);
+#movie-times{
+	text-align: left;
+	color: #B31B34;
+}
+
+#movie-title{
+	margin-top: 1rem;
+}
+
+#movie-description{
+	font-size: 18px;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.movie-credits{
+	line-height: 1.5;
+	margin-top: 20px;
+}
+.card-img{
+	max-width: 100%;
+	height: auto;
+}
+
+.card-img-top{
+	max-width: 100%;
+	height: auto;
+}
+
+.text-gray{
+	color: #5e5e5e;
+}
+
+a.fab {
+	font-size: 30px;
+	color: white;
+	padding: 5px;
+	text-emphasis: after;decoration: none;
+}
+
+.jumbotron {
+	position: relative;
+	background-color: #FFFFFF!important;
+	border-top: 3px solid rgb(219,219,219);
+
+}
+
+.footerLink {
+	color: #B31B34;
+}
+
+ #aboutUs {
+ 	padding-right: 5em;
+ 	padding-left: 5em;
+ }
+
+.lead {
+	padding-left: 2em;
+	color: #B31B34;
+	
+}
+
+.footer {
+	background-color: #1e1e1e;
+	width: 100%
+}
+
+.lower-footer {
+	background-color: #141414;
+	font-size: .8em;
+	width: 100%;
+	text-align: center;
+	color: #5e5e5e;
+	padding-top: .5em;
+	padding-bottom: .5em;
+}
+
+.mList {
+	background-color: #262323;
+	padding-top: 1.5em;
+	border-radius: 0.5em;
+}
+
+.my-form {
+	width: 100%;
+	align-content: center;	
+	
+	.label {
+		color: #F2F2F2;
+	}	
+}
+
+.card-header {
+	background-color: #B31B34!important;
+}	
+
+.video-background{
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	background-color: #000000;
+	opacity: .5;
+	
+}
+
+#header-caption{
+
+	position: absolute;
+	margin-top: 8em;	
+}
+
+.row, .container-fluid {
+margin-left: 0px!important;
+margin-right: 0px!important;
+}
+
+.video-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#video {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+  z-index: -1000;
+}
+video { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background: url('') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+@media (min-width: 768px) {
+	#reserve-form {
+		// position: relative!important;
+
+	}
+	
+}
+
+//Bootstrap Sass Files
+@import "node_modules/bootstrap/scss/bootstrap";
